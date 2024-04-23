@@ -5,3 +5,13 @@ services:
       dockerfile: go.Dockerfile
     ports:
       - "8080:8080"
+    depends_on:
+      - redis
+    # restart: unless-stopped
+
+  redis:
+    image: "redis"
+    # restart: unless-stopped
+    ports:
+      - "6379:6379"
+
