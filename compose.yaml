@@ -15,3 +15,15 @@ services:
     ports:
       - "6379:6379"
 
+  postgresql:
+    image: postgres 
+    # restart: always
+    ports:
+      - "5432:5432"
+    user: postgres 
+    environment:
+      - "POSTGRES_DB=tinify"
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=password"
+      - "POSTGRES_HOST_AUTH_METHOD=scram-sha-256"
+      - "POSTGRES_INITDB_ARGS=--auth-host=scram-sha-256"   
